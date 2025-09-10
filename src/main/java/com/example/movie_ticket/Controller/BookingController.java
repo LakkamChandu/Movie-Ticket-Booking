@@ -14,7 +14,7 @@ import com.example.movie_ticket.Model.Booking;
 import com.example.movie_ticket.Service.BookingService;
 
 @RestController
-@RequestMapping("/api/booking")
+@RequestMapping("/api/bookings")
 public class BookingController {
 
     private final BookingService bookingService;
@@ -30,17 +30,17 @@ public class BookingController {
             return  bookingService.createBooking(movieId, customerName, seats);     
     }
 
-    @GetMapping("/booking/{bookingId}")
+    @GetMapping("/{bookingId}")
     public Booking getBookingById(@PathVariable Long bookingId){
         return bookingService.getBookingById(bookingId);
     }
 
-    @GetMapping("/bookings")
+    @GetMapping
     public List<Booking> getAllBokings(){
         return bookingService.getAllBookings();
     }
     
-    @DeleteMapping("/delete{bookingId}")
+    @DeleteMapping("/{bookingId}")
     public void cancelBooking(@PathVariable Long bookingId){
         bookingService.cancelBooking(bookingId);
     }

@@ -38,7 +38,7 @@ public class MovieController {
         return movieService.saveMovie(movie);
     }
 
-    @DeleteMapping({"/delete/{movieId}"})
+    @DeleteMapping({"/{movieId}"})
     public void deleteMovie(@PathVariable Long movieId){
         movieService.deleteMovie(movieId);
     }
